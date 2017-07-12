@@ -201,6 +201,7 @@ class BBB extends AAA {
 /////////////////////////////////////////////////////////
 class A11{
 	 void a1() {
+		 System.out.println("a1 metod");
 		}
 	 void m() {
 	}
@@ -223,7 +224,74 @@ class See {
 		//Нисходящее преобразование типов может осуществляться от класса предка к классу, 
 		//который находится в любом узле иерархии наследования от предка к потомку
 		B11 b = (B11) a;
-		b.m();
+		b.m(); // B11
+		b.a1(); // a1 method
 	}
 }
+/////////////////////////////////////////
+class Outer {
 
+	class A1 {
+		void a1() {
+		}
+
+		void m() {
+		}
+	}
+
+	class B1 extends A1 {
+		void m() {
+		}
+	}
+	static class Stat{}
+
+	public static void main(String[] args) {
+
+		Outer test = new Outer();
+		Outer.A1 a = test.new A1();
+		Outer.B1 b = test.new B1();
+		Outer.Stat ss = new Outer.Stat();
+		a = b;
+		b = (B1) a;
+	}
+}
+/////////////////////////////////////////
+
+class A3 {
+}
+
+class B3 extends A3 {
+}
+
+class C3 extends B3 {
+}
+
+class DF {
+
+	public static void main(String[] args) {
+		B3 o = new B3();
+		System.out.println(o instanceof A3);//true
+		System.out.println(o instanceof B3);//true
+		System.out.println(o instanceof C3);//false
+		
+		int value=3;
+		//The left operand of instanceof MUST be an object and not a primitive.
+		//System.out.println(value instanceof Integer or int);//incompatible type
+		
+		Short k = new Short((short) 9); 
+		System.out.println(k instanceof Short); //true
+	}
+}
+////////////////////////////////
+interface Animal{}
+class Mammal{}
+class Cat {//if final it will be error (cat instanceof Animal)
+	public static void main(String[] args) {
+		Cat cat = new Cat();
+		System.out.println(cat instanceof Cat);//true
+		System.out.println(cat instanceof Animal);//false
+		//System.out.println(cat instanceof Mammal);//incompatible
+		
+	}
+}
+//////////////////////////////////////////////////////////
