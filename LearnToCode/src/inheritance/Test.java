@@ -230,26 +230,45 @@ class See {
 }
 /////////////////////////////////////////
 class Outer {
+	private void outer1() {
+	}
 
 	class A1 {
-		void a1() {
+		private void a1() {
+			Outer.this.outer1();
+			
 		}
 
-		void m() {
+		private void m() {
+			System.out.println("private m()");
 		}
 	}
 
 	class B1 extends A1 {
-		void m() {
+		private void m() {
+			//only abstract or final NOT public or static
+			class LocalClass {
+			}
+			LocalClass lc = new LocalClass();
+			//анонимные классы никогда не могут быть статическими, либо абстрактными;
+			new LocalClass() {};
 		}
 	}
-	static class Stat{}
+	static class Stat{
+		private void m() {
+			//Cannot make a static reference to the non-static 
+			//method outer1() from the type Outer
+			//outer1();
+		}
+	}
 
 	public static void main(String[] args) {
 
 		Outer test = new Outer();
+		test.outer1();
 		Outer.A1 a = test.new A1();
 		Outer.B1 b = test.new B1();
+		a.m();
 		Outer.Stat ss = new Outer.Stat();
 		a = b;
 		b = (B1) a;
