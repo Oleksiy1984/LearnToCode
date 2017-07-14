@@ -1,7 +1,5 @@
 package strings;
 
-import sun.applet.Main;
-
 public class Test {
 
 	public static void main(String[] args) {
@@ -103,5 +101,6 @@ class Constructors{
 		char[] c = {'0','1','2','3','4','5'};
 		String a = new String(c,1,3);
 		System.out.println(a);//123
+
 	}
 }
