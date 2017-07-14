@@ -202,7 +202,7 @@ class SimpleActionCourse {
 	}
 
 	public static void main(String[] args) {
-		SimpleActionCourse sap = new <Course>SimpleActionCourse(new Course());
+		SimpleActionCourse sap = new SimpleActionCourse(new Course());
 		sap.printReport(new Course(7112));
 		SimpleActionCourse sa = new <String>SimpleActionCourse();
 		sa.<Integer>check();
