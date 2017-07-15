@@ -6,6 +6,19 @@ import java.util.ResourceBundle;
 public class ZooOpen {
 
 	public static void main(String[] args) {
+		/*
+		 * Zoo_en_US.properties 
+		 * Zoo_en.java > Zoo_en.properties
+		 * 
+		 * Zoo_ru_RU.properties
+		 * Zoo_ru.properties
+		 * 
+		 * Zoo_uk_UA.java > Zoo_uk_UA.properties
+		 * Zoo_uk.properties
+		 * 
+		 * Zoo.java > Zoo.properties
+		 * 
+		 */
 /*
 		//1. Локаль по умолчанию ru-RU. 
 		//Загружаем левое new Locale("es","ES") или деф локаль
