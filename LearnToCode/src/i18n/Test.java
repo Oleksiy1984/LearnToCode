@@ -15,6 +15,9 @@ public class Test {
 class Locale1 {
 
 	public static void main(String[] args) {
+		Locale loc=new Locale("ru","Ru");
+		System.out.println(loc.getDisplayCountry(loc.US));//Russia
+		
 		Locale locale = Locale.getDefault();
 		System.out.println(locale.getDisplayLanguage());// русский
 		System.out.println(locale.getLanguage());// ru
