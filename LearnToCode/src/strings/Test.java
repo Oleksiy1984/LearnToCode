@@ -101,6 +101,10 @@ class Constructors{
 		char[] c = {'0','1','2','3','4','5'};
 		String a = new String(c,1,3);
 		System.out.println(a);//123
+		StringBuilder sd = new StringBuilder();
+		//String f = (String) sd;
+		String f="";
+		//sb=(StringBuilder)f;
 
 	}
 }

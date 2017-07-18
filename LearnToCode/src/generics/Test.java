@@ -35,6 +35,7 @@ class Quest8<Tl, T2> {
 		Quest8 obj1 = new Quest8();
 		// Quest8<Object> obj = new Quest8<Object> ();
 		Quest8<Object, Object> obj3 = new Quest8<Object, Object>();
+		Quest8<Integer, Integer> obj4 = new Quest8<>();
 		// Quest8<..., Object> obj = new Quest8<..., Object> ()
 		// Quest8<Object, Integer> obj3 = new Quest8<Integer, Objects ();
 		// Type mismatch: cannot convert from Quest8<Integer,Integer> to
@@ -74,13 +75,15 @@ class One<T> {
 
 	void call() {
 		// The method f() is undefined for the type T
-		// obj.f();
-	} // ERR: f()
+		//obj.f();// ERR: f()
+		//BUT
+		 ((Two) obj).f();
+	} 
 }
 
 class Two {
 	public void f() {
-		System.out.println("Two#f()");
+		System.out.println("Two#f()BUT");
 	}
 
 	public static void main(String[] args) {
@@ -107,7 +110,7 @@ class One1<T extends Two1> {
 
 class Two1 {
 	public void f() {
-		System.out.println("Two1#f()");
+		System.out.println("Two1#f()1");
 	}
 
 	public static void main(String[] args) {
