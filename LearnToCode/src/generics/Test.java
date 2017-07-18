@@ -1,6 +1,8 @@
 package generics;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Test {
 }
@@ -147,6 +149,11 @@ class Erased<T> {
 	private final int SIZE = 100;
 
 	public void f(Object arg) {
+		//List<Integer> list1 = new List<Integer>()); 
+		List<Integer> list2 = new ArrayList<Integer>(); 
+		List<? extends Number> list = new ArrayList<Integer>();
+		//List<Number> list3 = new ArrayList<Integer>(); 
+		//List<Integer> list4 = new ArrayList<Number>();
 		// if (arg instanceof T) {} // Ошибка
 		// T var = new T(); // Ошибка
 		// T[] array = new T[SIZE]; // Ошибка
