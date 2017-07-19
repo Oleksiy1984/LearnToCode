@@ -47,6 +47,12 @@ public class Sample {
 		theDouble = theFloat;
 		theFloat=(float) theDouble;
 		
+		byte U127=127;
+		byte d128=-128;
+		
+		float d=10+5/2-1f+5l;
+		
+		
 	}
 
 }
