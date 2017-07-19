@@ -18,7 +18,10 @@ public class Test {
 		m.find();
 		System.out. println(m.group(1));
 
-
+		Pattern p1 = Pattern.compile("c.*(?=bb{1,})");
+		Matcher m1 = p1.matcher("aabccabbbccbbb");
+		m1.find();
+		System.out. println(m1.group());//ccabbbccb
 	}
 
 }

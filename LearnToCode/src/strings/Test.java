@@ -1,6 +1,8 @@
 package strings;
 
 public class Test {
+	public static String hello="hello";
+	public static String by=new String("by");
 
 	public static void main(String[] args) {
 		String a = "abc";
