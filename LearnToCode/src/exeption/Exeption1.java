@@ -166,23 +166,27 @@ class TestClass3 {
 		}
 	}
 }
-//Обход запрета на расширение множества 
-//выбрасываемых исключений при перекрытии метода
+
+// Обход запрета на расширение множества
+// выбрасываемых исключений при перекрытии метода
 class A1 {
 	// выбрасывает только Error или RuntimeException:
-	void m() {}
+	void m() {
+	}
 }
+
 class B1 extends A1 {
-	void m()  { // перекрытие метода m класса A
+	void m() { // перекрытие метода m класса A
 		try {
 			// выброс исключения
-			throw new IOException(); 
+			throw new IOException();
 		} catch (Exception e) { // перехват исключения
 			// выброс нового исключения
 			throw new Error(e);
 		}
 
 	}
+
 	public static void main(String[] args) {
 		B1 b = new B1();
 		try {
@@ -194,10 +198,49 @@ class B1 extends A1 {
 			// извлечение исходного исключения
 			Throwable cause = t.getCause();
 
-			 // напечатает java.io.IOException:
+			// напечатает java.io.IOException:
 			System.out.println(cause);
-		} 
+		}
 
 	}
 }
 
+class App {
+	public static void main(String[] args) {
+		System.err.println(f());
+	}
+
+	public static int f() {
+		try {
+			throw new RuntimeException();
+		} finally {
+			return 1;
+		}
+	}
+}
+
+class TestClass5 {
+	public static void main(String args[])  {
+		Exception e = null;
+		//Unhandled exception type Exception
+		//throw e;
+	}
+}
+class Test6{
+	   public static void main(String args[]){
+	      for(int i = 0; i< args.length; i++){
+	         System.out.print(" "+args[i]);//arg empty - print nothing
+	      }
+	   }
+	}
+class TestClass10{
+	   public static void main(String args[]){
+	      try{
+	         RuntimeException re = null;
+	         throw re;//java.lang.NullPointerException
+	      }
+	      catch(Exception e){
+	         System.out.println(e);
+	      }
+	   }
+	}
