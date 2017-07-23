@@ -23,7 +23,7 @@ public class Enum1 {
 	}
 
 	public static void main(String[] args) {
-
+String g=SdR;
 		Numbers n1 = Numbers.ONE;
 		Numbers n2 = Numbers.ONE;
 		if (n1 == n2) {
@@ -34,7 +34,6 @@ public class Enum1 {
 		}
 		System.out.println(Numbers.FIVE.ordinal());// 4
 		System.out.println(Numbers.ONE.ordinal());// 0
-
 	}
 }
 
@@ -66,4 +65,6 @@ enum Main {
 	public static void main(String[] args) {
 		X.m();
 	}
+	
+	
 }
