@@ -9,6 +9,13 @@ import java.util.Locale;
 public class Test {
 }
 
+//i18n - Поддержка вывода значений параметров в виде, 
+//который принят в той или иной стране
+//Локализация - приспособление приложения к языку и рынку страны,
+//где оно будет продаваться или использоваться.
+//i18n - адаптация продукта для потенциального использования практически в любой стране.
+//L10n - адаптация продукта для использования в конкретной стране.
+
 // A Locale object represents a specific geographical, political, or cultural
 // region.
 // Locale(String language, String country, String variant)

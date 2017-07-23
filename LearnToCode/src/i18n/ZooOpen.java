@@ -1,9 +1,10 @@
 package i18n;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ZooOpen {
+public class ZooOpen extends ResourceBundle.Control{
 
 	public static void main(String[] args) {
 		/*
@@ -56,6 +57,7 @@ public class ZooOpen {
 				.getBundle("i18n.Zoo", new Locale("en","GB"));
 		System.out.println(rb3.getString("open"));
 		System.out.println(rb3.getString("close"));
+	
 		//java.util.MissingResourceException
 	//System.out.println(rb3.getString("visitor"));
 		
