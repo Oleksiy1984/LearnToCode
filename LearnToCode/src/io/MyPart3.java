@@ -2,108 +2,101 @@ package io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Locale;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MyPart3 {
 
-	public static String readFile(String trigger) throws FileNotFoundException {
+	private String dataString;
+
+	public MyPart3() {
+		this.dataString = readFile();
+	}
+
+	private String readFile() {
+		System.out.println("READ FILE");
 		StringBuilder result = new StringBuilder();
-
-		switch (trigger) {
-		case "int":
-			try (Scanner sc = new Scanner(new File("test1.txt"))) {
-				sc.useLocale(Locale.US);
-				while (sc.hasNext()) {
-					if (sc.hasNextInt()) {
-						result.append(sc.nextInt() + " ");
-					}
-					sc.next();
-				}
+		try (Scanner sc = new Scanner(new File("part3.txt"))) {
+			while (sc.hasNextLine()) {
+				result.append(sc.nextLine());
 			}
-			break;
-		case "double":
-			try (Scanner sc = new Scanner(new File("test1.txt"))) {
-				//sc.useLocale(Locale.US);
-				Pattern p1 = Pattern.compile("(^|\\s)([\\d+]*\\.\\d+)(\\s|$)");
-				while (sc.hasNext()) {
-					if(sc.hasNext(p1)) {
-						return result.append(sc.next() + " ").toString();
-					}
-					sc.next();
-				}
-			}
-			break;
-		case "String":
-			try (Scanner sc = new Scanner(new File("test1.txt"))) {
-				sc.useLocale(Locale.US);
-				while (sc.hasNext()) {
-					if (!sc.hasNextDouble() && !sc.hasNextDouble()) {
-						Pattern p = Pattern.compile("[Р-пр-џ\\w]{2,}");
-						if (sc.hasNext(p)) {
-							result.append(sc.next() + " ");
-						}
-					}
-					sc.next();
-				}
-			}
-			break;
-		case "char":
-			try (Scanner sc = new Scanner(new File("test1.txt"))) {
-				sc.useLocale(Locale.US);
-				while (sc.hasNext()) {
-					Pattern p1 = Pattern.compile("(?:(?:^|\\s)([a-zA-Zр-џР-п])(?=\\s))", Pattern.MULTILINE);
-					if (sc.hasNext(p1)) {
-						result.append(sc.next() + " ");
-					}
-					sc.next();
-				}
-			}
-			break;
+		} catch (FileNotFoundException e) {
+			System.out.println("FileNotFoundException");
 		}
-
 		return result.toString();
 	}
 
-	public static void main(String[] args) throws FileNotFoundException {
+	private String findDouble() {
+		StringBuilder sb = new StringBuilder();
+		Pattern p = Pattern.compile("([\\d+]*\\.\\d+)");
+		Matcher m = p.matcher(dataString);
+		while (m.find()) {
+			sb.append(m.group() + " ");
+		}
+		return sb.toString().trim();
+	}
+
+	private String findInt() {
+		StringBuilder sb = new StringBuilder();
+		Pattern p = Pattern.compile("(^|\\s)(\\d+)(\\s|$)");
+		Matcher m = p.matcher(dataString);
+		while (m.find()) {
+			sb.append(m.group(2) + " ");
+		}
+		return sb.toString();
+	}
+
+	private String findString() {
+		StringBuilder sb = new StringBuilder();
+		Pattern p = Pattern.compile("[Р-пр-џa-zA-Z]{2,}");
+		Matcher m = p.matcher(dataString);
+		while (m.find()) {
+			sb.append(m.group() + " ");
+		}
+		return sb.toString();
+	}
+
+	private String findChar() {
+		StringBuilder sb = new StringBuilder();
+		Pattern p = Pattern.compile("(?i)(^|(?<=\\s))[a-zр-џA-ZР-п]($|(?=\\s))");
+		Matcher m = p.matcher(dataString);
+		while (m.find()) {
+			sb.append(m.group() + " ");
+		}
+		return sb.toString();
+	}
+
+	public void start() {
 		try (Scanner sc = new Scanner(System.in)) {
 			while (sc.hasNext()) {
 				String str = sc.nextLine();
 				switch (str) {
 				case "int":
-					System.out.println(readFile("int"));
+					System.out.println(findInt());
 					break;
 				case "double":
-					System.out.println(readFile("double"));
+					System.out.println(findDouble());
 					break;
 				case "String":
-					System.out.println(readFile("String"));
+					System.out.println(findString());
 					break;
 				case "char":
-					System.out.println(readFile("char"));
+					System.out.println(findChar());
 					break;
+				case "stop":
+					System.exit(0);
 				default:
-					System.out.println("No such element");
+					System.out.println("There is no such element");
 
 				}
-
-				// if ("int".equals(str)) {
-				// System.out.println(integerValue());
-				// } else if ("double".equals(str)) {
-				// System.out.println(doubleValue());
-				// } else if ("char".equals(str)) {
-				// System.out.println(charValue());
-				// } else if ("String".equals(str)) {
-				// System.out.println(stringValue());
-				// } else if ("stop".equals(str)) {
-				// System.out.println("End of input");
-				// return;
-				// } else {
-				// System.out.println("No such element");
-				// }
 			}
 		}
+	}
+
+	public static void main(String[] args) throws FileNotFoundException {
+		MyPart3 p = new MyPart3();
+		p.start();
 
 	}
 
