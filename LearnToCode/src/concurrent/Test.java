@@ -341,9 +341,66 @@ c)	while (lamp == true) wait();
    вызов метода notufyAll()  
 
  */
+////////////////////////
+// 3 methods to start thread
+//in thread constructor (pass T extends Thread, pass T implem Runnable
+class Test10 {
+	public static void main(String[] argv) {
+		//1
+		Thread t = new Thread(
+			new MyThread());
+		t.start();//123
+		//2
+		Thread t2 = new Thread(
+				new MyThread2());
+			t2.start();//runnable
+			//3
+			MyThread thread = new MyThread();
+			thread.start();//123
+					
+			MyThread2 runn = new MyThread2();
+					//runn.start();Can't start runnable
+			
+			
+	}
+}
 
-
-
+class MyThread extends Thread {
+	public void run() {System.out.println(123);}
+} 
+class MyThread2 implements Runnable {
+	public void run() {System.out.println("runnable");}
+}
+/////////////////////////////////////
+class Test12 extends Thread {
+	public void run() {
+		for (int j = 0; j < 10; j++) {
+			System.out.println(j);
+			try {Thread.sleep(200);}
+			catch (Exception e) {e.printStackTrace();}
+		}
+	}
+	public static void main(String[] args) throws InterruptedException {
+		Test12 t = new Test12(); t.start();
+		Thread.sleep(1000);
+		t.interrupt(); // через секунду будет выброс 
+	 	// исключени€ методом sleep если он
+	}	// выполн€етс€ в данный момент
+}
+///////////////////////////////////////
+class MyThread3 implements Runnable{
+	public void run () {
+		System.out.println("Heelo");
+	}
+}
+class Runn{
+	public static void main(String[] args) throws InterruptedException {
+		MyThread3 t =new MyThread3();
+		Thread th = new Thread(t);
+		th.start();
+		th.start();//java.lang.IllegalThreadStateException
+	}
+}
 
 
 
