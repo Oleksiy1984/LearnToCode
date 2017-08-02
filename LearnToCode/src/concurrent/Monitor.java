@@ -28,14 +28,14 @@ public class Monitor {
 
 	
 		MyThread4 t1 = new MyThread4();
-//		MyThread4 t2 = new MyThread4();
-//		t1.start();
-//		t2.start();
-//		t1.join();
-//		t2.join();
-//		Thread.sleep(1000000);
-//		System.out.println("End main");
-		t1.run();
+		MyThread4 t2 = new MyThread4();
+		System.err.println(t1.getName());
+		t1.start();
+		t2.start();
+		t1.join();
+		t2.join();
+		Thread.sleep(10000);
+		System.out.println("End main");
 	}
 }
 

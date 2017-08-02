@@ -366,9 +366,11 @@ class Test10 {
 }
 
 class MyThread extends Thread {
+	@Override
 	public void run() {System.out.println(123);}
 } 
 class MyThread2 implements Runnable {
+	@Override
 	public void run() {System.out.println("runnable");}
 }
 /////////////////////////////////////
@@ -390,6 +392,7 @@ class Test12 extends Thread {
 ///////////////////////////////////////
 class MyThread3 implements Runnable{
 	public void run () {
+		for (int i = 0; i<1000;i++)
 		System.out.println("Heelo");
 	}
 }
@@ -398,9 +401,56 @@ class Runn{
 		MyThread3 t =new MyThread3();
 		Thread th = new Thread(t);
 		th.start();
+		//th.interrupt();
 		th.start();//java.lang.IllegalThreadStateException
 	}
 }
+////////////////////////////////////
+/**
+ * Which of the following statements about the Callable call()
+ *  and Runnable run()
+methods are correct? (Choose all that apply.)
+A. Both can throw unchecked exceptions.
+B. Callable takes a generic method argument.
+C. Callable can throw a checked exception.
+D. Both can be implemented with lambda expressions.
+E. Runnable returns a generic type.
+F. Callable returns a generic type.
+G. Both methods return void.
 
+A, C, D, F. Runnable and Callable statements 
+both take no method arguments as input,
+so B is incorrect. Runnable returns void and Callable
+ returns a generic type, so F is correct, 
+ and E and G are incorrect. All methods are capable
+  of throwing unchecked exceptions,
+so A is correct. Only Callable is capable of throwing
+ checked exceptions, so C is correct.
+Both Runnable and Callable can be implemented 
+with lambda expressions, so D is correct.
+ */
+/////////////////////////////////
+/**
+ * Fill in the blanks:__ occur(s) when two or more threads
+ *  are blocked forever but
+both appear active. 
+____occur(s) when two or more threads try to complete a related
+task at the same time.
+A. Livelock, Deadlock
+B. Deadlock, Starvation
+C. Race conditions, Deadlock
+D. Livelock, Race conditions
+E. Starvation, Race conditions
+F. Deadlock, Livelock
+
+D. Livelock occurs when two or more threads are conceptually
+ blocked forever, although
+they are each still active and trying to complete their task.
+ A race condition is an undesirable
+result that occurs when two tasks are completed at the same time, 
+which should have
+been completed sequentially. For these reasons, D is the only 
+correct answer.
+ */
 
 
