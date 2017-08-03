@@ -153,7 +153,7 @@ Iterator.remove() is O(1) <--- main benefit of LinkedList<E>
 ListIterator.add(E element) is O(1) <--- main benefit of LinkedList<E>
 Note: O(n/4) is average, O(1) best case (e.g. index = 0), O(n/2) worst case (middle of list)
 
-For ArrayList<E>
+For ArrayList<E> 
 
 get(int index) is O(1) <--- main benefit of ArrayList<E>
 add(E element) is O(1) amortized, but O(n) worst-case since the array 
