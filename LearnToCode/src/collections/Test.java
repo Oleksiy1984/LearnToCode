@@ -71,7 +71,7 @@ class User {
 			return false;
 		return true;
 	}
-    
+   
 }
 /**
  * ƒл€ методов equals и hashCode установлен определенный контракт:
