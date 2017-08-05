@@ -1,11 +1,14 @@
 package collections;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Blinov {
 	public static void main(String[] args) {
@@ -41,6 +44,34 @@ class X {
 		System.out.println(set.size());//2
 	}
 }
+/////////////////////
+class StringComparator implements Comparator<String>{
+
+	@Override
+	public int compare(String o1, String o2) {
+		
+		return o1.compareTo(o2);
+	}
+	
+}
+class Letuchka{
+	public static void main(String[] args) {
+		TreeMap map = new TreeMap();
+		map.put("FD","2");
+		TreeMap map2 = new TreeMap(map);
+		map.put(map2.toString(),"2");
+		System.out.println(map);//{FD=2, {FD=2}=2}
+		
+		TreeSet map3 = new TreeSet(new StringComparator());
+		map3.add("1");
+		map3.add("2");
+		for(Object f: map3) {
+			System.out.print(f);//12
+		}
+	}
+}
+
+
 /////////////////////////
 class ArList{
 	public static void main(String[] args) {
