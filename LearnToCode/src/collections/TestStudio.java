@@ -1,9 +1,14 @@
 package collections;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.NavigableSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class TestStudio {
@@ -76,6 +81,27 @@ Note that methods of NavigableMap
 		d.addFirst(2);
 		d.pop();
 		d.offerFirst(3);
+		///////////////////////
+		String[] p = {"1", "2", "3" };
+		List<?> list2 = new ArrayList<Object>(Arrays.asList(p));
+		list2.add(null);
+		//list2.add("");compile error
+		Object obj = list2.get(0);
+		System.out.println(list2);
+		////////////////
+		HashMap map = new HashMap<Object,Object>();
+		map.put(null, null);
+		System.out.println(map);//{null=null}
+		////////////////////
+		LinkedHashMap map2 = new LinkedHashMap<Object,Object>();
+		map2.put(null, null);
+		System.out.println(map2);//{null=null}
+		//////////////////////
+		TreeMap<String,String> map3 = new TreeMap<String,String>();
+		map3.put("a", null);//{a=null}
+		//map3.put(null, "1"); NullPointerException
+		System.out.println(map3);//{null=null}
+		
 	}
 
 	/**
@@ -120,8 +146,23 @@ Note that methods of NavigableMap
 		 Object d = list.get(0);
 	}
 	
-}
+}///////////////////////
+//Sort Strings:
+//spaces < numbers < uppercase < lowercas
 /////////////////////////
+//only Vector and Hashtable are Thread-safe
+/////////////////////////
+//Remember that a collection can be sorted in two ways:  
+//Collections.sort(myCollections); <--- In this case, 
+//class of objects contained in the collection must 
+//implement Comparable interface.  
+//Collections.sort(myCollections, myComparator); <--- In this case, 
+//myComparator implements Comparator interface and class of 
+//objects contained in the collection need 
+//not implement any interface or method. 
+//The collection is sorted using myComparator.compare(obj1, obj2) 
+//method, where obj1 and obj2 are members of myCollection.
+//////////////////////
 /**
  * The signature of a method in a class is as follows:  
  * public static <E extends CharSequence> List<? super E> doIt(List<E> nums) 
