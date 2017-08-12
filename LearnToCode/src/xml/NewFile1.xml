@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <file>
 	<name />
-	<contents attributeName1 = 'name' attributeName2 = "name">
+	<contents attributeName1 = '1@name' attributeName2 = "#name">
 	</contents>
 	<name />
-	<another_Root />
+	<another_Root/>
+	<another_Root><another_Root/></another_Root>
+	<another_Root></another_Root>
+	<!-- <error Tag/> <1errorTag/> <$errorTag/>  <error%Tag/>-->
+	<valid4Tag/>
+	<valid_Tag/>
+	<another_Root></another_Root>
+	<file></file>
 </file>
+<!-- <NewRoot></NewRoot> -->
