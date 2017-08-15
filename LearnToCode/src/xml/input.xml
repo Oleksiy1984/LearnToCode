@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<st7:Gem 
+xsi:schemaLocation="http://nure.ua/your_last_name/SummaryTask3/entity input.xsd" 
+xmlns:st7="http://nure.ua/your_last_name/SummaryTask3/entity" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<gem id="zm1">
+		<name>Аметист</name>
+		<preciousness>Полудрагоценный</preciousness>
+		<origin>Мексика</origin>
+		<visual_parameters>
+			<color>Фиолетовый</color>
+			<transparency>50</transparency>
+			<facets>8</facets>
+		</visual_parameters>
+		<visual_parameters>
+			<color>Фиолетовый2</color>
+			<transparency>2</transparency>
+			<facets>4</facets>
+		</visual_parameters>
+		<value>4</value>
+	</gem>
+	<gem id="cl1">
+		<name>Изумруд</name>
+		<preciousness>Драгоценный</preciousness>
+		<origin>Африка</origin>
+		<visual_parameters>
+			<color>Зеленый</color>
+			<transparency>40</transparency>
+			<facets>12</facets>
+		</visual_parameters>
+		<value>2.8</value>
+	</gem>
+	<gem id="rub1">
+		<name>Рубин</name>
+		<preciousness>Драгоценный</preciousness>
+		<origin>Азия</origin>
+		<visual_parameters>
+			<color>Красный</color>
+			<transparency>60</transparency>
+			<facets>30</facets>
+		</visual_parameters>
+		<value>3.6</value>
+	</gem>
+	<gem id="ait1">
+		<name>Цитрин</name>
+		<preciousness>Полудрагоценный</preciousness>
+		<origin>Россия</origin>
+		<visual_parameters>
+			<color>Лимонный</color>
+			<transparency>80</transparency>
+			<facets>18</facets>
+		</visual_parameters>
+		<value>6.5</value>
+	</gem>
+</st7:Gem>
