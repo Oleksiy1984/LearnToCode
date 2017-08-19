@@ -19,6 +19,8 @@ public class Test {
 		//1. Загрузка класса драйвера
 		/*
 		 * Загрузка класса драйвера.
+		 * Загрузка
+		 * 
 		 */
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
