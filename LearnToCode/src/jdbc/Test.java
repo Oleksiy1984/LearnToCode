@@ -64,7 +64,7 @@ public class Test {
 			//PrepearedStatement retrieve data
 			preparedStatement.setInt(1, 3);
 			ResultSet rs2 = preparedStatement.executeQuery();
-			rs2.next();
+			System.out.println("rs2.next()= " + rs2.next());//true
 			System.out.println(rs2.getInt(1)+" "+rs2.getString(2));
 			/*
 			//PrepearedStatement insert the record

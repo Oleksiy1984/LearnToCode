@@ -8,12 +8,104 @@ public class Blinov {
 }
 /**
  * Какие пакеты содержат интерфейсы и классы JDBC (1)?
-1)	java.db и javax.xdb
+	java.db и javax.xdb
 2)	java.sql и javax.sql
-3)	java.jdbc.sql и javax.jdbc.sql
-4)	org.sql и org.jdbc
-5)	java.jdbc и javax.jdbc
- */
+	java.jdbc.sql и javax.jdbc.sql
+	org.sql и org.jdbc
+	java.jdbc и javax.jdbc
+
+Классы и интерфейсы JDBC находятся в пакетах
+java.sql и javax.sql. 
+Ответ: 2.
+
+
+Даны операторы языка Java:
+a)	Connection cn =
+DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "pass");
+b)	ResultSet rs = st.executcQucry( "SELECT * FROM users WHERE id=l");
+c)	Class.forName("org.gjt.mm.mysql.Driver");
+d)	Statement st = cn.createStatement();
+e)	System.out.println(rs.next());
+Расставьте их в правильной последовательности так, 
+чтобы с помощью получившегося кода можно бьшо извлечь данные из БД (1):
+1)	abdcc:
+2)	cadbe;
+3)	cabdc;
+4)	ebdac;
+5)	abced.
+
+2) cadbe
+Последовательность действий для подключения к БД с помощью JDBC следующая: 
+загрузка драйвера, установление соединения, создание объекта 
+для выполнения запросов, выполнение 
+запроса, обработка результатов, 
+закрытие открытых соединений. 
+Ответ: 2.
+
+
+
+
+Какие типы statement-объектов существуют в JDBC (3)?
+1)	Statement
+2)	ResultStatement
+3)	PreparedStatement
+4)	DrivcrStatcmcnt
+5)	MetaDataStatement
+6)	CallableStatement
+
+1,3,6
+В API JDBC существует три интерфейса, 
+реализации которых могут предоставлять statement-объекты: 
+Statement, PreparedStatement, CallableStatement.
+Ответ: 1, 3, 6.
+
+
+Дана база данных test с таблицей users:
+id	name
+1	Ivanov
+Какая информация добавится в таблицу users после выполнения
+ следующего кода (2)?
+Connection сn = /* корректное получение соединения */;
+/*
+Statement st = cn.createStatement();
+st.executeUpdate("INSERT INTO users VALUES (2, 'Petrov')"); 
+cn.setAutoCommit(false);
+st.executeUpdate("INSERT INTO users VALUES (3, 'Sidorov')");
+cn.setSavepoint("point1");
+st.exccuteUpdate("INSERT INTO users VALUES (4, 'Vasechkin')"); 
+cn.rollback();
+st.executeUpdate("INSERT INTO users VALUES (5, 'Blinov')"); 
+cn.commit();
+
+1)	id=2, name-Petrov
+2)	id=3, name=Sidorov
+3)	id=4, name=Vasechkin
+4)	id=5. name=Blinov
+
+
+Метод rollback(), выполненный на объекте типа Connection, 
+откатит состояние БД до выполнения последней операции commit; 
+в таблицу добавится информация (2, Petrov) и (5, Blinov).
+Ответ: 1, 4.
+
+Укажите, каким способом можно выполнить хранимую процедуру 
+с помощью JDBC (3):
+1)	вызвать метод execute() на объекте CallableStatement
+2)	вызвать метод executeQuery() на объекте CallableStatement
+3)	вызвать метод executeUpdate() на объекте CallableStatement
+	вызвать метод executeProcedure() на объекте CallableStatement
+	вызвать метод execute() на объекте StoredStatement
+	вызвать метод exccuteQuery() на объекте StoredStatement
+	вызвать метод exccuteUpdatc() на объекте StoredStatement
+	вызвать метод exccuteProcedure() на объекте StoredStatement
+
+
+Хранимую процедуру можно выполнить на объекте CallableStatement. 
+после установки входных и выходных параметров используются
+методы ехесute(), ехеcuteQuery() или executeUpdate().
+Ответ: 1, 2, 3.
+*/
+
 
 
 /*
