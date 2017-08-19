@@ -16,7 +16,7 @@ public class Test {
 
 	public static void main(String[] args) throws SQLException {
 		
-		//1.Загрузка класса драйвера
+		//1.Р—Р°РіСЂСѓР·РєР° РєР»Р°СЃСЃР° РґСЂР°Р№РІРµСЂР°
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
@@ -24,14 +24,15 @@ public class Test {
 		}
 		
 		try (
-				//2. Установка соединения с БД, автоматическая
-				//регистрация драйвера
+				//2. РЈСЃС‚Р°РЅРѕРІРєР° СЃРѕРµРґРёРЅРµРЅРёСЏ СЃ Р‘Р”, Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєР°СЏ
+				//СЂРµРіРёСЃС‚СЂР°С†РёСЏ РґСЂР°Р№РІРµСЂР°
 				Connection conn = DriverManager.getConnection(
 				"jdbc:mysql://localhost/leransql?useSSL=false", "newuser",
 				"123456");
-				//3. Создание объекта для передачи запросов - Statement.
+
+				//3. РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° РґР»СЏ РїРµСЂРµРґР°С‡Рё Р·Р°РїСЂРѕСЃРѕРІ - Statement.
 				Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-				//4. Выполнение запроса.
+				//4. Р’С‹РїРѕР»РЅРµРЅРёРµ Р·Р°РїСЂРѕСЃР°.
 				ResultSet rs = stmt.executeQuery("SELECT * FROM test");
 				PreparedStatement preparedStatement = conn.prepareStatement("select * from test where id=?");
 				PreparedStatement preparedStatement2 = conn.prepareStatement(update)
@@ -39,8 +40,8 @@ public class Test {
 				)
 		{
 
-			//5. Обработка результатов выполненя запроса
-			//6. Закрытие ресурсов в обратном порядке.
+			//5. РћР±СЂР°Р±РѕС‚РєР° СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РІС‹РїРѕР»РЅРµРЅСЏ Р·Р°РїСЂРѕСЃР°
+			//6. Р—Р°РєСЂС‹С‚РёРµ СЂРµСЃСѓСЂСЃРѕРІ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ.
 			//rs.beforeFirst(); runtime error
 			//rs.afterLast();
 			//rs.first();
