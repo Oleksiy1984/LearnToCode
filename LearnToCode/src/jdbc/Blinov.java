@@ -3,6 +3,10 @@ package jdbc;
 public class Blinov {
 
 	public static void main(String[] args) {
-		// Г Г°Г­ГіГ±Гў
+		/**
+		 * Укажите параметры, которые можно использовать при объявлении
+		 *  документа xml (3):
+			errorPage
+			*/
 	}
 }
