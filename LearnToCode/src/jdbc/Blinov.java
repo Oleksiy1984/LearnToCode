@@ -3,7 +3,6 @@ package jdbc;
 public class Blinov {
 
 	public static void main(String[] args) {
-		// арнусв
+		// Г Г°Г­ГіГ±Гў
 	}
-
 }
